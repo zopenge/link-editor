@@ -1,0 +1,3 @@
+[submodule "sub-editors/model"]
+	path = sub-editors/model
+	url = https://github.com/zopenge/link-editor-model.git
