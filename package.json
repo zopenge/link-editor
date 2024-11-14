@@ -5,9 +5,13 @@
   "main": "index.js",
   "module": "index.mjs",
   "scripts": {
+    "pull": "git pull && git submodule foreach git pull",
+    "checkout-main": "node scripts/checkout-branch.js main|master",
+    "checkout-dev": "node scripts/checkout-branch.js dev",
+    "sub-editors:watch": "concurrently \"npm --prefix sub-editors/model run watch\"",
+    "watch": "concurrently \"vite build --watch\" \"npm run sub-editors:watch\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
-    "watch": "vite build --watch",
     "build": "vite build",
     "serve": "vite preview"
   },
@@ -18,7 +22,9 @@
     "vue": "^3.5.12"
   },
   "devDependencies": {
+    "@types/node": "^22.9.0",
     "@vitejs/plugin-vue": "^5.2.0",
+    "concurrently": "^9.1.0",
     "typescript": "^5.6.3",
     "vite": "^5.4.11"
   }
